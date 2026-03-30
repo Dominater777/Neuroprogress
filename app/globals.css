@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FONT SYSTEM */
+
+html {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* SERIF HEADINGS */
+
+h1, h2 {
+  font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* BASE RESET */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+}
+
+/* COLOR THEME */
+
+body {
+
+  color: #e6edf7;
+
+  background:
+
+    radial-gradient(
+      ellipse at 20% 15%,
+      rgba(120,140,200,0.08),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      ellipse at 80% 85%,
+      rgba(100,120,180,0.07),
+      transparent 50%
+    ),
+
+    linear-gradient(
+      180deg,
+      #0b0f17 0%,
+      #0e1420 45%,
+      #0a0f18 100%
+    );
+
+}
+
+/* GRID OVERLAY (very subtle scientific feel) */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image:
+
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+
+  background-size: 72px 72px;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+}
+
+/* TEXT COLORS */
+
+.text-secondary {
+
+  color: #9fb0c8;
+
+}
+
+.text-muted {
+
+  color: #7f8ca3;
+
+}
+
+/* CARD STYLE */
+
+.card {
+
+  background: rgba(17, 24, 39, 0.55);
+
+  border: 1px solid rgba(120,140,180,0.18);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+
+    0 10px 35px rgba(0,0,0,0.35);
+
+  border-radius: 24px;
+
+}
+
+/* BUTTON STYLE */
+
+.button-card {
+
+  background: rgba(18, 26, 42, 0.6);
+
+  border: 1px solid rgba(120,140,180,0.18);
+
+  transition: 0.25s ease;
+
+}
+
+.button-card:hover {
+
+  border-color: rgba(140,160,255,0.45);
+
+  background: rgba(22, 32, 54, 0.7);
+
+}
+
+/* SLIDER COLOR */
+
+input[type="range"] {
+
+  accent-color: #8fa2ff;
+
+}
+
+/* LINK RESET */
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+h1,h2,h3,h4,p {
+
+  margin: 0;
+
+}
