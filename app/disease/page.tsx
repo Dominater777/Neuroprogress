@@ -1,103 +1,126 @@
-"use client";
+import Link from "next/link"
 
-import Link from "next/link";
-
-const options = [
+const conditions = [
 
 {
-name:"Healthy Brain",
-href:"/viewer?disease=healthy",
-description:"Baseline neural functioning"
+title: "Healthy Brain",
+href: "/viewer?disease=healthy",
+subtitle:
+"Stable neural regulation and balanced network communication"
 },
 
 {
-name:"Major Depressive Disorder",
-href:"/viewer?disease=mdd",
-description:"Mood regulation circuitry disruption"
+title: "Major Depressive Disorder",
+href: "/viewer?disease=mdd",
+subtitle:
+"Limbic-prefrontal dysregulation affecting mood and motivation"
 },
 
 {
-name:"Schizophrenia",
-href:"/viewer?disease=schizophrenia",
-description:"Altered salience and cognitive networks"
+title: "Schizophrenia",
+href: "/viewer?disease=schizophrenia",
+subtitle:
+"Disrupted salience and perceptual integration networks"
 },
 
 {
-name:"Parkinson’s Disease",
-href:"/viewer?disease=parkinsons",
-description:"Degeneration of dopaminergic pathways"
+title: "Parkinson's Disease",
+href: "/viewer?disease=parkinsons",
+subtitle:
+"Dopaminergic degeneration affecting motor circuitry"
 }
 
-];
+]
 
-export default function DiseasePage(){
+export default function DiseasePage() {
 
-return(
+return (
 
-<div className="min-h-screen bg-[#070b12] text-[#e6edf6] flex items-center justify-center">
+<main className="min-h-screen flex items-center justify-center bg-[#020617] text-slate-100">
 
-<div className="w-full max-w-[900px] px-8">
+<div className="w-full max-w-[1100px] px-10">
 
-<div className="text-center mb-16">
 
-<p className="text-[11px] tracking-[0.35em] text-[#9fb0c8] mb-4">
+{/* HEADER */}
 
-NEURAL PROGRESSION VISUALIZATION
+<div className="text-center mb-24">
+
+<p className="text-xs tracking-[0.45em] text-slate-400">
+
+CONDITION SELECTION
 
 </p>
 
-<h1 className="text-[42px] font-semibold tracking-tight mb-5">
+<h1 className="mt-6 text-6xl font-semibold tracking-tight text-white">
 
-Select a condition
+Choose a Progression Model
 
 </h1>
-
-<p className="text-[#9fb0c8] text-[15px]">
-
-Explore how brain networks change across stages of neurological and psychiatric disorders
-
-</p>
 
 </div>
 
 
 
-<div className="grid grid-cols-2 gap-5">
+{/* 2 x 2 GRID */}
 
-{options.map(option=>(
+<div className="grid grid-cols-2 gap-14">
+
+
+{conditions.map((condition) => (
 
 <Link
 
-key={option.name}
+key={condition.title}
 
-href={option.href}
+href={condition.href}
 
-className="group rounded-[18px] border border-[rgba(150,170,200,.18)] bg-[#0f1623] p-7 transition-all duration-300 hover:border-[#7c9cff] hover:bg-[#121a2a]"
+className="group relative h-[220px] rounded-[32px] border border-slate-800/80 bg-slate-950/40 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-900/50"
 
 >
 
-<p className="text-[18px] font-medium mb-2 group-hover:text-[#9bb0ff]">
 
-{option.name}
+{/* hover glow */}
+
+<div className="absolute inset-0 rounded-[32px] opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-cyan-400/10 via-transparent to-indigo-400/10"/>
+
+
+
+{/* centered content */}
+
+<div className="relative flex h-full flex-col items-center justify-center text-center px-10">
+
+
+<h2 className="text-2xl font-medium tracking-tight text-white">
+
+{condition.title}
+
+</h2>
+
+
+
+<p className="mt-4 text-sm leading-relaxed text-slate-400 max-w-[240px]">
+
+{condition.subtitle}
 
 </p>
 
-<p className="text-[13.5px] text-[#9fb0c8]">
 
-{option.description}
+</div>
 
-</p>
 
 </Link>
 
 ))}
 
-</div>
 
 </div>
 
+
 </div>
 
-);
+
+</main>
+
+)
 
 }

@@ -3,140 +3,189 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, useGLTF, Center } from "@react-three/drei";
 
-type Props = {
-  progress: number;
+type Props={
+progress:number;
+regions:string[];
+showRegions:boolean;
 };
 
-type Region = {
-  name: string;
-  position: [number, number, number];
+const regionPositions:any={
+
+"Amygdala":[-0.4,-0.2,0.25],
+
+"Hippocampus":[-0.2,-0.35,0.1],
+
+"Dorsolateral PFC":[-1.1,0.55,0.55],
+
+"Ventromedial PFC":[-0.7,0.15,0.5],
+
+"Subgenual ACC":[-0.15,0.45,0.2],
+
+"Nucleus Accumbens":[0,-0.15,0.2],
+
+"Default Mode Network":[0,0.55,-0.2],
+
+"Thalamus":[0,0.05,0.15],
+
+"Anterior Insula":[0.45,0.2,0.15],
+
+"Superior Temporal Gyrus":[0.75,-0.1,0.15],
+
+"Wernicke Area":[0.9,0.05,0.2],
+
+"Parietal Cortex":[0.25,0.85,-0.15],
+
+"Substantia Nigra":[0,-0.4,-0.25],
+
+"Putamen":[0.25,-0.1,0.1],
+
+"Globus Pallidus":[0.2,-0.05,0.15],
+
+"Cerebellum":[0,-0.85,-0.45],
+
+"Motor Cortex":[-0.6,0.9,0.25],
+
+"Basal Ganglia":[0.15,-0.1,0.15],
+
+"Salience Network":[0.1,0.35,0.05]
+
 };
 
-function RegionLabels({ progress }: { progress: number }) {
+function RegionLabels({progress,regions,showRegions}:Props){
 
-  const regions: Region[] = [
+if(!showRegions) return null;
 
-    { name: "Prefrontal Cortex", position: [-1.15, 0.42, 0.65] },
+return(
 
-    { name: "Anterior Cingulate", position: [-0.35, 0.78, 0.05] },
+<>
 
-    { name: "Amygdala", position: [-0.48, -0.18, 0.35] },
+{regions.map(region=>{
 
-    { name: "Hippocampus", position: [-0.25, -0.45, 0.15] }
+const pos=regionPositions[region];
 
-  ];
+if(!pos) return null;
 
-  return (
-    <>
-      {regions.map(region => {
+const r=120+progress*130;
+const g=170-progress*120;
+const b=255-progress*200;
 
-        const r = 150 + progress * 105;
-        const g = 180 - progress * 120;
-        const b = 205 - progress * 160;
+return(
 
-        const glow = 8 + progress * 18;
+<group key={region} position={pos}>
 
-        return (
+<Html center distanceFactor={8}>
 
-          <group key={region.name} position={region.position}>
+<div style={{
 
-            <Html center distanceFactor={8}>
+padding:"6px 14px",
 
-              <div
-                style={{
-                  padding: "7px 16px",
+borderRadius:"999px",
 
-                  borderRadius: "999px",
+background:`rgba(${r},${g},${b},0.14)`,
 
-                  background: `rgba(${r},${g},${b},0.14)`,
+border:`1px solid rgba(${r},${g},${b},0.35)`,
 
-                  border: `1px solid rgba(${r},${g},${b},0.35)`,
+color:`rgb(${r+40},${g+40},${b+40})`,
 
-                  color: `rgb(${r+35},${g+35},${b+35})`,
+fontSize:"12px",
 
-                  fontSize: "12.5px",
+backdropFilter:"blur(10px)",
 
-                  letterSpacing: ".03em",
+boxShadow:`0 0 14px rgba(${r},${g},${b},0.35)`
 
-                  fontWeight: 500,
+}}>
 
-                  backdropFilter: "blur(10px)",
+{region}
 
-                  boxShadow: `0 0 ${glow}px rgba(${r},${g},${b},0.25)`
-                }}
-              >
+</div>
 
-                {region.name}
+</Html>
 
-              </div>
+</group>
 
-            </Html>
+);
 
-          </group>
+})}
 
-        );
+</>
 
-      })}
-    </>
-  );
+);
 
 }
 
-function BrainModel({ progress }: { progress: number }) {
+function BrainModel({progress,regions,showRegions}:Props){
 
-  const { scene } = useGLTF("/models/scene.gltf");
+const{scene}=useGLTF("/models/scene.gltf");
 
-  return (
+return(
 
-    <Center>
+<Center>
 
-      <primitive
-        object={scene}
-        scale={1.12}
-        rotation={[0, Math.PI, 0]}
-      />
+<primitive object={scene} scale={1.12} rotation={[0,Math.PI,0]}/>
 
-      <RegionLabels progress={progress} />
+<RegionLabels
 
-    </Center>
+progress={progress}
 
-  );
+regions={regions}
+
+showRegions={showRegions}
+
+/>
+
+</Center>
+
+);
 
 }
 
-export default function Brain({ progress }: Props) {
+export default function Brain({progress,regions,showRegions}:Props){
 
-  return (
+return(
 
-    <Canvas camera={{ position: [0, 0, 7], fov: 32 }}>
+<Canvas camera={{position:[0,0,7],fov:32}}>
 
-      <ambientLight intensity={0.8} />
+<ambientLight intensity={0.85}/>
 
-      <directionalLight position={[5,5,6]} intensity={1.05} />
+<directionalLight position={[5,5,6]} intensity={1.05}/>
 
-      <directionalLight position={[-5,-3,-5]} intensity={0.2} />
+<directionalLight position={[-5,-3,-5]} intensity={0.2}/>
 
-      <directionalLight position={[0,5,-6]} intensity={0.15} />
+<directionalLight position={[0,5,-6]} intensity={0.2}/>
 
-      <BrainModel progress={progress} />
+<BrainModel
 
-      <OrbitControls
-        enableZoom={true}
-        enablePan={false}
+progress={progress}
 
-        minDistance={3.5}
-        maxDistance={14}
+regions={regions}
 
-        rotateSpeed={0.55}
-        zoomSpeed={0.7}
+showRegions={showRegions}
 
-        dampingFactor={0.06}
-        enableDamping={true}
-      />
+/>
 
-    </Canvas>
+<OrbitControls
 
-  );
+enableZoom
+
+enablePan={false}
+
+minDistance={3.5}
+
+maxDistance={14}
+
+rotateSpeed={0.55}
+
+zoomSpeed={0.7}
+
+dampingFactor={0.06}
+
+enableDamping
+
+/>
+
+</Canvas>
+
+);
 
 }
 

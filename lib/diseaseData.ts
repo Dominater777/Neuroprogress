@@ -1,539 +1,451 @@
-export type Stage = {
+export const diseaseData = {
 
-    title: string
-    
-    neural: string[]
-    
-    functional: string[]
-    
-    regions: string[]
-    
-    }
-    
-    export type Disease = {
-    
-    id: string
-    
-    label: string
-    
-    stages: Stage[]
-    
-    }
-    
-    export const diseaseData: Record<string, Disease> = {
-    
-    
-    /* ------------------------------ */
-    /* HEALTHY */
-    /* ------------------------------ */
-    
     healthy: {
     
-    id: "healthy",
+    name: "Healthy Brain",
     
-    label: "Healthy Brain",
+    overview:
+    "Balanced neural network communication supports stable cognition, emotional regulation, and adaptive stress response.",
     
-    stages: [
+    showRegions:false,
+    
+    stages:[
     
     {
+    label:"Baseline Stability",
     
-    title: "Stable neural equilibrium",
+    description:
+    "Efficient coordination between cortical and subcortical systems maintains stable cognitive and emotional processing.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Anterior cingulate",
-    "Hippocampus",
-    "Amygdala"
+    symptoms:[
+    "Stable mood",
+    "Consistent focus",
+    "Healthy sleep cycle",
+    "Adaptive stress response",
+    "Stable motivation"
     ],
     
-    neural: [
-    "Balanced signaling between cognitive and emotional networks",
-    "Stable neurotransmitter regulation across reward pathways",
-    "Efficient hippocampal contextual encoding",
-    "Consistent anterior cingulate engagement in conflict monitoring",
-    "Healthy large-scale neural network synchrony"
-    ],
+    regions:[],
     
-    functional: [
-    "Stable mood regulation",
-    "Consistent motivation",
-    "Reliable focus control",
-    "Healthy stress recovery",
-    "Adaptive emotional flexibility"
-    ]
+    focus:
+    "Integrated neural signaling supports balanced executive and emotional function.",
     
+    intensity:5
     },
     
     {
+    label:"Adaptive Variability",
     
-    title: "Adaptive cognitive variation",
+    description:
+    "Normal fluctuations occur without disruption to functional stability.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Hippocampus"
+    symptoms:[
+    "Normal emotional variation",
+    "Situational stress",
+    "Temporary fatigue",
+    "Stable productivity",
+    "Flexible thinking"
     ],
     
-    neural: [
-    "Minor neurotransmitter variation remains within healthy range",
-    "Flexible prefrontal modulation of emotional responses",
-    "Stable memory encoding dynamics",
-    "Adaptive neural plasticity",
-    "Preserved network communication efficiency"
-    ],
+    regions:[],
     
-    functional: [
-    "Normal variation in attention levels",
-    "Healthy response to daily stress",
-    "Stable working memory",
-    "Effective decision-making",
-    "Consistent behavioral regulation"
-    ]
+    focus:
+    "Healthy variability reflects dynamic neural adaptability.",
     
+    intensity:7
     },
     
     {
+    label:"Resilient Regulation",
     
-    title: "Sustained resilience",
+    description:
+    "Stress-response networks activate and return efficiently to baseline.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Anterior cingulate"
+    symptoms:[
+    "Efficient recovery from stress",
+    "Stable cognitive clarity",
+    "Emotional flexibility",
+    "Balanced energy",
+    "Consistent performance"
     ],
     
-    neural: [
-    "Strong prefrontal regulation of limbic processing",
-    "Efficient salience detection",
-    "Stable cognitive control signaling",
-    "Balanced network integration",
-    "Reliable synaptic efficiency"
-    ],
+    regions:[],
     
-    functional: [
-    "Stable emotional baseline",
-    "Healthy executive functioning",
-    "Reliable cognitive flexibility",
-    "Consistent learning capacity",
-    "Maintained attentional control"
-    ]
+    focus:
+    "Resilient network dynamics maintain functional balance.",
     
+    intensity:9
     },
     
     {
+    label:"Optimized Integration",
     
-    title: "Long-term neural stability",
+    description:
+    "Large-scale neural networks coordinate efficiently across cognitive domains.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Hippocampus",
-    "Amygdala",
-    "Anterior cingulate"
+    symptoms:[
+    "Strong working memory",
+    "Clear reasoning",
+    "Stable emotional processing",
+    "Consistent attention",
+    "Healthy motivation"
     ],
     
-    neural: [
-    "Preserved connectivity across distributed neural networks",
-    "Stable stress response modulation",
-    "Balanced excitatory-inhibitory signaling",
-    "Healthy hippocampal structural integrity",
-    "Maintained neurotransmitter equilibrium"
-    ],
+    regions:[],
     
-    functional: [
-    "Consistent mental clarity",
-    "Stable emotional resilience",
-    "Reliable energy levels",
-    "Healthy behavioral consistency",
-    "Stable attention regulation"
-    ]
+    focus:
+    "Integrated connectivity supports adaptive cognition.",
     
+    intensity:12
     }
     
     ]
     
     },
     
+    mdd:{
     
+    name:"Major Depressive Disorder",
     
-    /* ------------------------------ */
-    /* MAJOR DEPRESSIVE DISORDER */
-    /* ------------------------------ */
+    overview:
+    "Dysregulation of limbic-prefrontal networks alters emotional processing and reward sensitivity.",
     
-    mdd: {
+    showRegions:true,
     
-    id: "mdd",
-    
-    label: "Major Depressive Disorder",
-    
-    stages: [
+    stages:[
     
     {
+    label:"Reward Sensitivity Reduction",
     
-    title: "Early network sensitivity",
+    description:
+    "Reduced responsiveness in dopaminergic reward pathways affects motivation.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Amygdala"
+    symptoms:[
+    "Reduced motivation",
+    "Lower reward sensitivity",
+    "Mild fatigue",
+    "Sleep irregularities",
+    "Decreased interest"
     ],
     
-    neural: [
-    "Reduced regulatory control from prefrontal cortex",
-    "Increased amygdala response to negative stimuli",
-    "Subtle serotonin signaling variation",
-    "Early reward circuit sensitivity change",
-    "Mild limbic-prefrontal imbalance"
+    regions:[
+    "Nucleus Accumbens",
+    "Ventromedial PFC"
     ],
     
-    functional: [
-    "Mild emotional sensitivity",
-    "Reduced motivation at times",
-    "Subtle sleep variation",
-    "Minor attention fluctuations",
-    "Reduced reward anticipation"
-    ]
+    focus:
+    "Reduced reward pathway activity alters reinforcement learning.",
     
+    intensity:30
     },
     
     {
+    label:"Emotional Processing Bias",
     
-    title: "Developing dysregulation",
+    description:
+    "Hyperactivity in emotional salience regions increases negative interpretation bias.",
     
-    regions: [
-    "Prefrontal cortex",
+    symptoms:[
+    "Increased rumination",
+    "Heightened emotional sensitivity",
+    "Negative bias",
+    "Reduced resilience",
+    "Mood instability"
+    ],
+    
+    regions:[
     "Amygdala",
-    "Anterior cingulate"
+    "Subgenual ACC"
     ],
     
-    neural: [
-    "Weakened cognitive-emotional coordination",
-    "Reduced anterior cingulate regulation efficiency",
-    "Increased stress response activation",
-    "Reduced reward network sensitivity",
-    "Altered salience processing"
-    ],
+    focus:
+    "Salience processing prioritizes negative stimuli.",
     
-    functional: [
-    "Persistent low mood periods",
-    "Increased cognitive fatigue",
-    "Reduced concentration consistency",
-    "Lower motivation stability",
-    "Increased emotional variability"
-    ]
-    
+    intensity:50
     },
     
     {
+    label:"Cognitive Control Impairment",
     
-    title: "Functional disruption",
+    description:
+    "Executive networks show reduced regulatory efficiency.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Hippocampus",
-    "Anterior cingulate"
+    symptoms:[
+    "Low concentration",
+    "Decision difficulty",
+    "Mental fatigue",
+    "Reduced productivity",
+    "Working memory decline"
     ],
     
-    neural: [
-    "Reduced top-down regulatory signaling",
-    "Lower hippocampal neuroplasticity",
-    "Persistent stress pathway activation",
-    "Reduced network efficiency",
-    "Increased cognitive load"
+    regions:[
+    "Dorsolateral PFC",
+    "Hippocampus"
     ],
     
-    functional: [
-    "Difficulty sustaining effort",
-    "Reduced energy levels",
-    "Lower cognitive endurance",
-    "Increased decision fatigue",
-    "Reduced emotional resilience"
-    ]
+    focus:
+    "Reduced executive regulation alters emotional control.",
     
+    intensity:70
     },
     
     {
+    label:"Network Rigidity",
     
-    title: "Chronic dysregulation",
+    description:
+    "Large-scale brain networks show reduced adaptive flexibility.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Amygdala",
-    "Hippocampus",
-    "Anterior cingulate"
-    ],
-    
-    neural: [
-    "Persistent disruption of mood-regulation circuitry",
-    "Reduced dopaminergic reward sensitivity",
-    "Chronic stress-response activation",
-    "Reduced hippocampal efficiency",
-    "Broad functional dysconnectivity"
-    ],
-    
-    functional: [
-    "Persistent emotional distress",
-    "Reduced daily functioning consistency",
-    "Low motivation levels",
+    symptoms:[
+    "Persistent low mood",
     "Chronic fatigue",
-    "Reduced cognitive clarity"
-    ]
+    "Cognitive slowing",
+    "Reduced motivation",
+    "Sustained stress response"
+    ],
     
-    }
-    
-    ]
-    
-    },
-    
-    
-    
-    /* ------------------------------ */
-    /* SCHIZOPHRENIA */
-    /* ------------------------------ */
-    
-    schizophrenia: {
-    
-    id: "schizophrenia",
-    
-    label: "Schizophrenia",
-    
-    stages: [
-    
-    {
-    
-    title: "Prodromal variation",
-    
-    regions: [
-    "Prefrontal cortex",
+    regions:[
+    "Default Mode Network",
     "Hippocampus"
     ],
     
-    neural: [
-    "Subtle glutamatergic signaling disruption",
-    "Reduced hippocampal contextual processing accuracy",
-    "Early dopamine pathway variability",
-    "Reduced executive coordination",
-    "Increased neural signal noise"
-    ],
+    focus:
+    "Rigid network dynamics maintain maladaptive thought patterns.",
     
-    functional: [
-    "Mild concentration variability",
-    "Subtle perceptual sensitivity",
-    "Lower working memory consistency",
-    "Reduced attentional stability",
-    "Early cognitive inefficiency"
-    ]
-    
-    },
-    
-    {
-    
-    title: "Emerging dysconnectivity",
-    
-    regions: [
-    "Prefrontal cortex",
-    "Anterior cingulate",
-    "Hippocampus"
-    ],
-    
-    neural: [
-    "Reduced synchrony between cortical regions",
-    "Altered salience attribution signaling",
-    "Reduced anterior cingulate monitoring accuracy",
-    "Impaired hippocampal-prefrontal communication",
-    "Increased dopamine variability"
-    ],
-    
-    functional: [
-    "Increased distractibility",
-    "Reduced working memory stability",
-    "Difficulty maintaining cognitive organization",
-    "Reduced processing consistency",
-    "Increased cognitive effort requirement"
-    ]
-    
-    },
-    
-    {
-    
-    title: "Network fragmentation",
-    
-    regions: [
-    "Prefrontal cortex",
-    "Amygdala",
-    "Anterior cingulate"
-    ],
-    
-    neural: [
-    "Reduced top-down cognitive regulation",
-    "Increased salience misinterpretation",
-    "Altered limbic modulation patterns",
-    "Reduced neural coordination",
-    "Increased network fragmentation"
-    ],
-    
-    functional: [
-    "Disorganized thinking patterns",
-    "Inconsistent emotional responses",
-    "Reduced attentional stability",
-    "Difficulty maintaining structured reasoning",
-    "Increased cognitive variability"
-    ]
-    
-    },
-    
-    {
-    
-    title: "Chronic dysconnectivity",
-    
-    regions: [
-    "Prefrontal cortex",
-    "Hippocampus",
-    "Amygdala",
-    "Anterior cingulate"
-    ],
-    
-    neural: [
-    "Persistent disruption of functional connectivity",
-    "Altered dopamine pathway regulation",
-    "Reduced network integration efficiency",
-    "Persistent neural signal instability",
-    "Reduced cortical synchrony"
-    ],
-    
-    functional: [
-    "Significant cognitive fragmentation",
-    "Reduced executive control",
-    "Increased perceptual inconsistency",
-    "Difficulty maintaining task focus",
-    "Reduced daily functioning stability"
-    ]
-    
+    intensity:90
     }
     
     ]
     
     },
     
+    schizophrenia:{
     
+    name:"Schizophrenia",
     
-    /* ------------------------------ */
-    /* PARKINSON'S */
-    /* ------------------------------ */
+    overview:
+    "Disrupted integration between sensory, salience, and executive networks affects perception and cognitive organization.",
     
-    parkinsons: {
+    showRegions:true,
     
-    id: "parkinsons",
-    
-    label: "Parkinson's Disease",
-    
-    stages: [
+    stages:[
     
     {
+    label:"Salience Filtering Disruption",
     
-    title: "Early dopaminergic decline",
+    description:
+    "Abnormal salience attribution alters interpretation of sensory input.",
     
-    regions: [
-    "Prefrontal cortex"
+    symptoms:[
+    "Unusual perception patterns",
+    "Attention disruption",
+    "Reduced filtering of stimuli",
+    "Cognitive distraction",
+    "Subtle sensory distortion"
     ],
     
-    neural: [
-    "Early degeneration of dopamine-producing neurons",
-    "Reduced basal ganglia modulation",
-    "Subtle motor circuit inefficiency",
-    "Reduced dopamine availability",
-    "Early synaptic signaling changes"
+    regions:[
+    "Thalamus",
+    "Anterior Insula"
     ],
     
-    functional: [
-    "Mild motor precision variation",
-    "Subtle slowing of movement initiation",
-    "Slight coordination inconsistency",
-    "Reduced motor fluidity",
-    "Increased cognitive effort during motion"
+    focus:
+    "Salience network instability alters stimulus prioritization.",
+    
+    intensity:35
+    },
+    
+    {
+    label:"Sensory Integration Alteration",
+    
+    description:
+    "Temporal cortex dysfunction alters interpretation of auditory and language signals.",
+    
+    symptoms:[
+    "Auditory misperception",
+    "Language processing difficulty",
+    "Cognitive disorganization",
+    "Reduced clarity",
+    "Confusion"
+    ],
+    
+    regions:[
+    "Superior Temporal Gyrus",
+    "Wernicke Area"
+    ],
+    
+    focus:
+    "Temporal lobe dysregulation affects sensory integration.",
+    
+    intensity:55
+    },
+    
+    {
+    label:"Executive Coordination Breakdown",
+    
+    description:
+    "Prefrontal integration becomes less stable across working memory systems.",
+    
+    symptoms:[
+    "Thought fragmentation",
+    "Working memory difficulty",
+    "Reduced planning ability",
+    "Disorganized reasoning",
+    "Reduced task coordination"
+    ],
+    
+    regions:[
+    "Dorsolateral PFC",
+    "Parietal Cortex"
+    ],
+    
+    focus:
+    "Executive coordination becomes inconsistent.",
+    
+    intensity:75
+    },
+    
+    {
+    label:"Global Network Disorganization",
+    
+    description:
+    "Distributed neural networks fail to coordinate efficiently.",
+    
+    symptoms:[
+    "Severe cognitive disorganization",
+    "Reduced executive function",
+    "Social withdrawal",
+    "Disrupted reasoning",
+    "Reduced cognitive integration"
+    ],
+    
+    regions:[
+    "Default Mode Network",
+    "Salience Network"
+    ],
+    
+    focus:
+    "Large-scale connectivity becomes unstable.",
+    
+    intensity:95
+    }
+    
     ]
     
     },
     
+    parkinsons:{
+    
+    name:"Parkinson's Disease",
+    
+    overview:
+    "Degeneration of dopaminergic neurons disrupts basal ganglia motor coordination systems.",
+    
+    showRegions:true,
+    
+    stages:[
+    
     {
+    label:"Dopaminergic Reduction",
     
-    title: "Motor circuit disruption",
+    description:
+    "Loss of dopamine-producing neurons alters motor signaling precision.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Anterior cingulate"
+    symptoms:[
+    "Mild tremor",
+    "Minor stiffness",
+    "Reduced coordination",
+    "Subtle motor slowing",
+    "Fatigue"
     ],
     
-    neural: [
-    "Reduced dopamine transmission across motor pathways",
-    "Increased basal ganglia inhibition",
-    "Altered motor cortex signaling",
-    "Reduced neural efficiency in movement planning",
-    "Early motor network dysregulation"
+    regions:[
+    "Substantia Nigra",
+    "Putamen"
     ],
     
-    functional: [
-    "Slowed movement speed",
-    "Increased stiffness",
-    "Reduced coordination smoothness",
-    "Difficulty initiating voluntary motion",
-    "Reduced motor consistency"
-    ]
+    focus:
+    "Dopamine reduction alters basal ganglia signaling.",
     
+    intensity:35
     },
     
     {
+    label:"Motor Circuit Imbalance",
     
-    title: "Progressive impairment",
+    description:
+    "Basal ganglia-thalamic circuits lose efficiency.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Anterior cingulate"
+    symptoms:[
+    "Movement stiffness",
+    "Slower reaction time",
+    "Fine motor difficulty",
+    "Reduced fluidity",
+    "Mild balance issues"
     ],
     
-    neural: [
-    "Further dopaminergic neuron degeneration",
-    "Increased basal ganglia signaling disruption",
-    "Reduced cortical motor coordination",
-    "Increased neural compensation effort",
-    "Reduced motor network integration"
+    regions:[
+    "Globus Pallidus",
+    "Thalamus"
     ],
     
-    functional: [
-    "Noticeable tremor patterns",
-    "Increased muscle rigidity",
-    "Reduced balance stability",
-    "Slower voluntary movement",
-    "Increased motor fatigue"
-    ]
+    focus:
+    "Motor loop communication weakens.",
     
+    intensity:55
     },
     
     {
+    label:"Coordination Instability",
     
-    title: "Advanced dysfunction",
+    description:
+    "Cerebellar compensation becomes less effective.",
     
-    regions: [
-    "Prefrontal cortex",
-    "Anterior cingulate"
+    symptoms:[
+    "Balance difficulty",
+    "Postural instability",
+    "Motor fatigue",
+    "Reduced coordination",
+    "Movement variability"
     ],
     
-    neural: [
-    "Severe dopamine depletion",
-    "Reduced communication between motor planning regions",
-    "Impaired motor circuit coordination",
-    "Increased neural inefficiency",
-    "Reduced network synchrony"
+    regions:[
+    "Cerebellum",
+    "Motor Cortex"
     ],
     
-    functional: [
-    "Significant motor impairment",
-    "Difficulty maintaining posture",
-    "Reduced movement initiation",
-    "Increased physical fatigue",
-    "Reduced coordination accuracy"
-    ]
+    focus:
+    "Coordination systems lose stability.",
     
+    intensity:75
+    },
+    
+    {
+    label:"Advanced Motor Impairment",
+    
+    description:
+    "Motor network communication significantly impaired.",
+    
+    symptoms:[
+    "Severe tremor",
+    "Major rigidity",
+    "Movement difficulty",
+    "Reduced dexterity",
+    "Motor fatigue"
+    ],
+    
+    regions:[
+    "Motor Cortex",
+    "Basal Ganglia"
+    ],
+    
+    focus:
+    "Motor system communication significantly reduced.",
+    
+    intensity:95
     }
     
     ]
     
     }
     
-    }
+    };

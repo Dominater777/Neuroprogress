@@ -1,33 +1,20 @@
-import "./globals.css";
-
-import { Inter, Source_Serif_4 } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const serif = Source_Serif_4({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
+import "./globals.css"
 
 export const metadata = {
   title: "NeuroProgress",
-  description: "Neural disorder progression visualization",
-};
+  description: "Interactive neuroscience progression visualization"
+}
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${serif.variable}`}
-    >
-      <body>{children}</body>
+    <html lang="en">
+      <body>
+        {children}
+      </body>
     </html>
-  );
+  )
 }
